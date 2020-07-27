@@ -91,6 +91,6 @@ jobs:
     - name: EditMode test
       env: TEST_PLATFORM editmode IMAGE_NAME=ngtrhieu/unity3d
       <<: *test_job
-    # - name: PlatMode test
-    #   env: TEST_PLATFORM playmode IMAGE_NAME=ngtrhieu/unity3d
-    #   <<: *test_job
+    - name: PlatMode test
+      env: TEST_PLATFORM playmode IMAGE_NAME=ngtrhieu/unity3d
+      <<: *test_job
