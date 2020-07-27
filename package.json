@@ -1,10 +1,36 @@
 {
-  "name": "com.ngtrhieu.unitythread",
+  "name": "unitythread",
   "version": "0.0.1",
-  "displayName": "Unity Thread",
   "description": "Execute scripts on Unity main thread with ease.",
-  "author": {
-    "name": "ngtrhieu",
-    "email": "ngtrhieu0011@gmail.com"
+  "author": "ngtrhieu",
+  "license": "MIT",
+  "scripts": {
+    "pretest": "rm -rf test_results",
+    "test:editmode": "TEST_PLATFORM='editmode' UNITY_EXECUTABLE='/Applications/Unity/Hub/Editor/2019.4.1f1/Unity.app/Contents/MacOS/Unity' ./scripts/test.sh",
+    "test:playmode": "TEST_PLATFORM='playmode' UNITY_EXECUTABLE='/Applications/Unity/Hub/Editor/2019.4.1f1/Unity.app/Contents/MacOS/Unity' ./scripts/test.sh",
+    "test": "yarn test:editmode && yarn test:playmode",
+    "commit": "git-cz"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "3.2.0",
+    "husky": "^4.2.5"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "lodash": "^4.17.19",
+    "xml2js": "^0.4.23"
   }
 }
