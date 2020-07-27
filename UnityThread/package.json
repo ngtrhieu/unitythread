@@ -1,0 +1,10 @@
+{
+  "name": "com.ngtrhieu.unitythread",
+  "version": "0.0.1",
+  "displayName": "Unity Thread",
+  "description": "Execute scripts on Unity main thread with ease.",
+  "author": {
+    "name": "ngtrhieu",
+    "email": "ngtrhieu0011@gmail.com"
+  }
+}
