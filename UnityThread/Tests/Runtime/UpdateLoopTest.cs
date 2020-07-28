@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests {
+namespace UnityEngine.Tests {
   public class UpdateLoopTest {
 
     [UnityTest]
