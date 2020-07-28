@@ -1,5 +1,9 @@
 # Unity Threading makes simple
 
+[![Build Status](https://travis-ci.com/ngtrhieu/unitythread.svg?branch=master)](https://travis-ci.com/ngtrhieu/unitythread)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+![Package Version](https://img.shields.io/github/package-json/v/ngtrhieu/unitythread)
+
 ## Overview:
 
 UnityThread is an utility script that allow you to register tasks to be run on the next Update/LateUpdate/FixedUpdate loop, from any thread.
