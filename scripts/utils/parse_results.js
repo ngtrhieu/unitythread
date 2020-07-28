@@ -62,24 +62,39 @@ const renderTestRun = (testRun, level = 0) => {
     ":: Failed:",
     chalk.red(`${testRun.$.failed} / ${testRun.$.total}`)
   );
+
+  return parseInt(testRun.$.failed) === 0;
 };
 
 const parseResult = async (resultPath) => {
   try {
     const xml = fs.readFileSync(resultPath, { encoding: "utf-8" });
     const testResult = await XML.parseStringPromise(xml);
-    renderTestRun(testResult["test-run"]);
-  } catch (e) {}
+    const passed = renderTestRun(testResult["test-run"]);
+    return passed;
+  } catch (e) {
+    return false;
+  }
 };
 
 (async () => {
-  console.log();
-  console.log(chalk.blue("~~~ EditMode Results ~~~"));
-  await parseResult(path.join("test_results", "editmode-results.xml"));
-  console.log(chalk.blue("~~~~~~~~~~~~~~~~~~~~~~~"));
+  if (process.env.TEST_PLATFORM === "editmode") {
+    console.log();
+    console.log(chalk.blue("~~~ EditMode Results ~~~"));
+    const passed = await parseResult(
+      path.join("test_results", "editmode-results.xml")
+    );
+    console.log(chalk.blue("~~~~~~~~~~~~~~~~~~~~~~~"));
+    if (!passed) process.exit(1);
+  }
 
-  console.log();
-  console.log(chalk.blue("~~~ PlayMode Results ~~~"));
-  await parseResult(path.join("test_results", "playmode-results.xml"));
-  console.log(chalk.blue("~~~~~~~~~~~~~~~~~~~~~~~"));
+  if (process.env.TEST_PLATFORM === "playmode") {
+    console.log();
+    console.log(chalk.blue("~~~ PlayMode Results ~~~"));
+    const passed = await parseResult(
+      path.join("test_results", "playmode-results.xml")
+    );
+    console.log(chalk.blue("~~~~~~~~~~~~~~~~~~~~~~~"));
+    if (!passed) process.exit(1);
+  }
 })();
