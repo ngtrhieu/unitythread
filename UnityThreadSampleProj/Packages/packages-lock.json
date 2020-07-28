@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.ngtrhieu.unitythread": {
-      "version": "file:/Users/ngtrhieu/repositories/unitythread/UnityThread",
+      "version": "file:../../UnityThread",
       "depth": 0,
       "source": "local",
       "dependencies": {}
