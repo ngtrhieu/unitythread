@@ -1,5 +1,5 @@
 # yarn dependencies
-/node_modules
+node_modules/
 
 # build and tests folder
 [Bb]uilds/
