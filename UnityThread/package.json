@@ -6,5 +6,15 @@
   "author": {
     "name": "ngtrhieu",
     "email": "ngtrhieu0011@gmail.com"
-  }
+  },
+  "keywords": [
+    "unity",
+    "thread",
+    "async",
+    "task",
+    "util",
+    "helper",
+    "C#",
+    "upm"
+  ]
 }
