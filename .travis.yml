@@ -70,7 +70,7 @@ before_script:
   # - bundle install
 
   # Decrypt secrets inside ./secrets folder
-  # - openssl aes-256-cbc -K $encrypted_8026183efba4_key -iv $encrypted_8026183efba4_iv -in ./secrets/Unity_lic.ulf.enc -out ./secrets/Unity_lic.ulf -d
+  - openssl aes-256-cbc -K $encrypted_8026183efba4_key -iv $encrypted_8026183efba4_iv -in ./secrets/Unity_lic.ulf.enc -out ./secrets/Unity_lic.ulf -d
 
   # Set the rest of environment variables
   - chmod +x ./scripts/ci/env.sh
@@ -91,6 +91,6 @@ jobs:
     - name: EditMode test
       env: TEST_PLATFORM editmode IMAGE_NAME=ngtrhieu/unity3d
       <<: *test_job
-    - name: PlatMode test
+    - name: PlayMode test
       env: TEST_PLATFORM playmode IMAGE_NAME=ngtrhieu/unity3d
       <<: *test_job
