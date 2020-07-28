@@ -10,7 +10,7 @@ UnityThread is an utility script that allow you to register tasks to be run on t
 
 Open your `Packages/manifest.json` file and add the `npm` as the registry, with the scope _"com.ngtrhieu"_ as followed:
 
-```JSON
+```
 {
   "dependencies": {
     <...your existing dependencies>
@@ -68,7 +68,7 @@ UnityThread.ExecuteCoroutine(ACoroutine());
 
 Open `Packages/manifest.json` and add the following item:
 
-```JSON
+```
 {
   "dependencies": {
     <...your existing dependencies>
