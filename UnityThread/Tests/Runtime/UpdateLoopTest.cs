@@ -7,6 +7,13 @@ using UnityEngine.TestTools;
 namespace UnityEngine.Tests {
   public class UpdateLoopTest {
 
+    [SetUp]
+    public void SetUp() {
+      var runner = GameObject.Find("UnityThreadRunner");
+      if (runner != null)
+        Object.Destroy(runner);
+    }
+
     [UnityTest]
     public IEnumerator ActionExecuteNextUpdate() {
       var counter = 0;

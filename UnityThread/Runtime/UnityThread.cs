@@ -17,13 +17,12 @@ namespace UnityEngine {
 
     private static List<System.Action> tempQueue = new List<System.Action>();
 
-    private static UnityThread CreateUnityThreadInstance(bool visible = true) {
+    public static UnityThread CreateUnityThreadInstance(bool visible = true) {
       if (current != null) return current;
 
       if (Application.isPlaying) {
         var obj = new GameObject("UnityThreadRunner");
         obj.hideFlags = visible ? HideFlags.HideAndDontSave : HideFlags.None;
-
         current = obj.AddComponent<UnityThread>();
       }
       return current;
@@ -38,6 +37,10 @@ namespace UnityEngine {
       }
 
       DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnDestroy() {
+      if (current == this) current = null;
     }
 
     private void Update() {

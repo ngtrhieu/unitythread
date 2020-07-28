@@ -7,6 +7,13 @@ using UnityEngine.TestTools;
 namespace UnityEngine.Tests {
   public class CoroutineTest {
 
+    [SetUp]
+    public void SetUp() {
+      var runner = GameObject.Find("UnityThreadRunner");
+      if (runner != null)
+        Object.Destroy(runner);
+    }
+
     private int counter = 0;
 
     private IEnumerator ACoroutine() {
